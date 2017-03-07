@@ -3,9 +3,9 @@ This is additional, optional material for students of the Responsive Web Design 
 
 Material is organized as follows:
 
-main folder contains subfolder named as "<number> - <name>", where numberare progressive numbers suggesting the order in which you should approac the exercises, while name is an explicative name of the content
+main folder contains subfolder named as "number - name", where numberare progressive numbers suggesting the order in which you should approac the exercises, while name is an explicative name of the content
 each subfolder contains at least an index.html file, which explains the subject of the exercise, shows some examples and/or describes what to to in the exercises
-each subfolder may contain "exercise files" named as <number>->exercise number>_<name>.html (for example: 99-58_some-exercise.html), where number is the same number identifying the subfolder, exercise are progressive number identifying exercises within a subfolder and name is mnemonic name for the exercise
+each subfolder may contain "exercise files" named as number-exerciseNumber_name.html (for example: 99-58_some-exercise.html), where number is the same number identifying the subfolder, exercise are progressive number identifying exercises within a subfolder and name is mnemonic name for the exercise
 every time an "exercise file" is provided, a proposal of "solution file" is also given, and it is named as the corresponding "exercise file" plus _solution appended to the name (example: 99-58_some-exercise_solution.html)
 as a rule of thumb, always open the index.html file first, as it contains every info you need for a particular set of exercises.
 Exercises are in the form of partially compiled HTML (and JavaScript) files which students can complete. The source code is richly commented in order to give precise instructions about what to do.

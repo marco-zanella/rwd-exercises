@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>JSON | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<header class="container">
+			<div class="jumbotron">
+				<h1>JavaScript exercises</h1>
+				<p>Set of JavaScript optional exercises for students of the Responsive Web Design course.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="https://www.coursera.org/learn/responsive-web-design/discussions/all" role="button">Go to discussion forum</a>
+				</p>
+			</div>
+		</header>
+
+
+		<section class="container">
+			<div class="page-header">
+				<h2>03 - JSON</h2>
+			</div>
+
+			<p>
+				<abbr title="JavaScript Object Notation">JSON</abbr> is a format used to store and transfer information. As the name suggests, it is "based" on JavaScript objects, although it is language-independent. JSON files can used to hold structured data, for instance a list of people, or details about an event. Feel free to read <a href="https://en.wikipedia.org/wiki/JSON" target="_blank">Wikipedia entry for JSON</a> for some info and notes.
+			</p>
+
+
+
+			<h3>Example</h3>
+			<p>
+				From JavaScript's point of view, a JSON is nothing but an object (or array). This is an example of JSON showing details about an event:
+				<pre>
+{
+	id: "alrncxh91jfo",
+	name: "Spring Festival",
+	date: "2017-03-21 21:00:00",
+	place: "Town square"
+	description: "Great celebration for this year's spring!",
+	note: "Free entrace"
+}
+				</pre>
+				As any JavaScript object, it contains pairs in the form <em>key: value</em>. Here is another example with a list of people:
+				<pre>
+[
+	{
+		name: "John",
+		surname: "Smith",
+		address: "5, Fake Street"
+	},
+	{
+		name: "Pablo",
+		surname: "Guerra",
+		address: "7, Main Street"
+	},
+	{
+		name: "Daisy",
+		surname: "Duck",
+		address: "6, Duckbourg"
+	}
+]
+				</pre>
+			</p>
+
+
+
+			<h3>JSON files</h3>
+			<p>
+				A JavaScript object can be safely embedded in a JavaScript piece of code. It is also possible to have a separate JSON file, containing only the JSON object (no code!). Such a file has <em>.json</em> extension, for instance <em>data.json</em>.
+			</p>
+
+
+
+			<h3>Exercise: write your JSON</h3>
+			<p>
+				For this exercise, edit the file <em>03-01_json.html</em> and follows directives from line 84. In this exercise you are provided with function to display data in a HTML page (these functions use jQuery, but do not worry about them), and you are asked to write JSON data to display. Don't forget you are given the solution file <em>03-01_json_solution.html</em>.
+			</p>
+		</section>
+
+
+		<!-- jQuery and Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>

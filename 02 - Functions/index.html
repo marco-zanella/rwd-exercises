@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Functions | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<header class="container">
+			<div class="jumbotron">
+				<h1>JavaScript exercises</h1>
+				<p>Set of JavaScript optional exercises for students of the Responsive Web Design course.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="https://www.coursera.org/learn/responsive-web-design/discussions/all" role="button">Go to discussion forum</a>
+				</p>
+			</div>
+		</header>
+
+
+		<section class="container">
+			<div class="page-header">
+				<h2>02 - Functions</h2>
+			</div>
+
+			<p>
+				JavaScript is a <em>functional</em> programming language, and functions play a vital role in it. For this set of exercise you will be given some functions and will be asked to implement others.
+			</p>
+
+
+
+			<h3>Defining a function</h3>
+			<p>
+				As we saw in the introduction, there are several way to define a function. Let's consider the "explicit" one:
+				<pre>
+function my_function(x, y) {
+	var z = x * y + x - y;
+
+	return z - 5;
+}
+				</pre>
+				Definition of a function has the form: <em>function &lt;name&gt; ( &lt;argument list&lt; ) { &lt;body&gt; }</em>. Observe that spaces and newlines are not necessary, but are used to improve readability by programmers. The <em>name</em> can be any identifier, the <em>argument list</em> is a comma-separated list of arguments (for example: <em>arg1, arg2, arg3</em>) of any length (even 0), and the body is an arbitrary piece of JavaScript code.
+			</p>
+
+			<p>
+				Variables declared in the argument list must not be declared again in the function body:
+				<pre>
+// This is wrong!
+function foo(a, b) {
+	var a = a;
+	var b = b;
+
+	return a + b;
+}
+
+// This is right.
+function foo(a, b) {
+	return a + b;
+}
+				</pre>
+			</p>
+
+
+
+			<h3>Examples</h3>
+			<p>
+				So, what can you do with functions? Here are some examples:
+				<pre>
+/**
+ * Prints an error message on the console.
+ * @param message Message to print
+ */
+function display_error(message) {
+	console.log("[ERROR] " + message);
+}
+
+
+/**
+ * Prints a warning message on the console.
+ * @param message Message to print
+ */
+function display_warning(message) {
+	console.log("[WARNING] " + message);
+}
+
+
+/**
+ * Tells whether an array is empty (i.e. contains no element).
+ * @param array Array to examine
+ * @return true if array contains no element, false otherwise
+ */
+function is_empty_array(array) {
+	var n = array.length;
+
+	if (n == 0) {
+		return true;
+	}
+	else {
+		return false;
+	}
+}
+				</pre>
+				these function prints error and warning messages on the console.
+
+				<pre>
+/**
+ * Tells whether an array is empty (i.e. contains no element).
+ * This function is the same as the previous one, but uses a more compact syntax.
+ * @param array Array to examine
+ * @return true if array contains no element, false otherwise
+ */
+function is_empty_array2(array) {
+	return array.length == 0;
+}
+				</pre>
+				This function is an utility which tells whether an array is empty (i.e. contains no element).
+
+
+				<pre>
+/**
+ * Composes two unary functions into a single one.
+ * Recall the meaning of function composition: "(f o g)(x)" (f composed with g applied to x)
+ * is equal to "f(g(x))" (f applied to the result of g applied to x).
+ * @param f first function to compose
+ * @param g second function to compose
+ * @return A new function, composition of f and g
+ */
+function compose(f, g) {
+	return function (n) {
+		return f(g(n));
+	}
+}
+
+
+/**
+ * Returns successor of a number.
+ * For instance, successor(0) returns 1, successor(41) returns 42.
+ * @param n Number
+ * @return Successor of n
+ */
+function successor(n) {
+	return n + 1;
+}
+				</pre>
+				<em>Successor</em> computes successor of a number. <em>Compose</em>, on the other hand, is a "strange" function: it takes two functions as arguments, and creates a new function which is the equivalent of the first applied to the result of the second. This may seem a bit abstract to the non-mathematical minded, but play an important role. For instance, suppose you want to create "+2", "+3", "+4" functions which add 2, 3 and 4 to their arguments (like the <em>successor</em>): one possibility is to define one new function for each, or you could use the <em>compose</em> abstraction in the following way:
+				<pre>
+var plus2 = compose(successor, successor);
+				</pre>
+				What is this? <em>plus2</em> is a variabile initialized with the result of <em>compose</em>. The latter is given two <em>successor</em> functions as arguments, hence it produces a new function which, when applied to a number <em>n</em>, is equivalent to <em>successor(successor(n))</em>, which is exactly <em>n + 2</em>. Therefore:
+				<pre>
+var plus3 = compose(plus2, successor);
+var plus4 = compose(plus4, successor);
+				</pre>
+				Are a quick way to accomplish the task.
+			</p>
+
+			<div class="alert alert-info">
+				Observe that last exemple was for didactic purposes: there are better ways to obtain a function which performs a "+N" task. The goal of this example was to show to create, pass and handle functions in JavaScript.
+			</div>
+
+
+			<h3>Exercise: define your functions</h3>
+			<p>
+				For this exercise, edit the file <em>02-01_functions.html</em> and follows directives from line 35. Don't forget you are given the solution file <em>02-01_functions_solution.html</em>.
+			</p>
+		</section>
+
+
+		<!-- jQuery and Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>

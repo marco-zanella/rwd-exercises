@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Functions | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+
+	<body>
+		<div class="container">
+			Remember to open you developer console to see the result!
+		</div>
+
+		<!-- JavaScript code -->
+		<script>
+			// This is where you can put your JavaScript code.
+
+			// A couple of functions shown in the lecture is given to you, so that you can use them if you need:
+			function compose(f, g) {
+				return function (n) {
+					return f(g(n));
+				}
+			}
+
+			function successor(n) {
+				return n + 1;
+			}
+
+
+			// For this exercise, you have to define some function. They will be slightly more complex
+			// than those in the lecure, but you should have all the tools you need to accomplish the task
+			// by now.
+			// Remember to use console.log when something does not work, to get an idea of wath is going on.
+
+			// First function is given as example. It computes average value of an array on numbers:
+			function average_of_array(array) {
+				var n = array.length;
+				var sum = 0;
+
+				// For each number in array, add it to the sum...
+				for (var i = 0; i < n; ++i) {
+					sum = array[i];
+				}
+
+				// ...then divide the sum by the number of elements and returns result
+				return sum / n;
+			}
+			var numbers = new Array(1, 5, 4, 6, 11, 2, 2, 3, 10);
+			console.log(average_of_array(numbers));
+			
+			// Second function is the factorial function.
+			// Given a (natural) number > 0, you must compute the product: n * (n-1) * (n-2) * ... * 2 * 1.
+			// For example, factorial(5) = 5 * 4 * 3 * 2 * 1 = 120.
+			// You are given part of the code and must complete it:
+			function factorial(n) {
+				var fac = 1;
+
+				// Iterates in this order: i = n, n - 1, n - 2, ..., 2, 1
+				for (var i = n; i > 0; --i) {
+					// Here you should update the value of fac, multiplying it by i (edit the line below)
+					fac = fac * i;
+				}
+
+				return fac;
+			}
+			console.log("factorial(5) = " , factorial(5));
+			console.log("factorial(6) = " , factorial(6));
+
+
+			// Small bonus - another way to define the factorial is inductively:
+			// * factorial of 0 is 1
+			// * factorial of n + 1 is n * factorial of n
+			// This definition can be implemented using recursive function.
+			// Implementation is given to you as example
+			function factorial_recursive(n) {
+				if (n <= 0) {
+					return 1;
+				}
+				else {
+					return n * factorial_recursive(n - 1);
+				}
+			}
+			console.log("factorial_recursive(5) = " , factorial_recursive(5));
+			console.log("factorial_recursive(6) = " , factorial_recursive(6));
+
+
+
+			// Negation of a boolean value
+			// Negation of a boolean value switches its value of truth.
+			// In words "not true" means "false", and "not false" means "true".
+			// In JavaScript the unary operator "!" does this, but let's make it a function.
+			// This function is given to you as example.
+			function negation(b) {
+				return !b;
+			}
+			console.log("negation(true) = ", negation(true));
+			console.log("negation(false) = ", negation(false));
+
+
+
+
+			// Predicate: is even
+			// A predicate is a function returning either true or false.
+			// This predicate tells whether a number is even, and is implemented as example.
+			// Recall that "n % 2" is the reminder of the division of n by 2, for example
+			// 7 % 2 = 1 (7 / 2 = 3, with reminder 1). A number is even when its reminder is 0.
+			function is_even(n) {
+				return (n % 2) == 0;
+			}
+			console.log("is_even(7)? ", is_even(7));
+			console.log("is_even(8)? ", is_even(8));
+
+
+
+			// Predicate: is odd
+			// A number is odd when it is not even. Equivalently, a number is odd when reminder of division by 2 is 1
+			// You must implemented a function whose name is is_odd.
+			// Suggestion: instead a defining a new function, you can compose "negation" and "is_even"...
+			var is_odd = compose(negation, is_even);
+			// Uncomment the following lines to get an idea and check results
+			console.log("is_odd(7)? ", is_odd(7));
+			console.log("is_odd(8)? ", is_odd(8));
+
+
+
+			// Filter: only even numbers.
+			// This function takes an array of numbers and returns a new array, removing numbers wich are not even.
+			// For instance [1, 2, 3, 4] is mapped to [2, 4]. This operation is called "filter".
+			// This function is given to you as example.
+			function array_even(array) {
+				var result = new Array();
+				var n = array.length;
+
+				// For each element in the array
+				for (var i = 0; i < n; ++i) {
+					// If i-esim element is even, add it to the new array, otherwise do nothing
+					if (is_even(array[i])) {
+						result.push(array[i]);
+					}
+				}
+
+				return result;
+			}
+			console.log(array_even(numbers));
+
+
+
+			// Filter: only odd numbers.
+			// Takes an array of numbers and returns a new one, keeping only odd numbers (see previous example).
+			// The name and argument list are given to you, and you must implement the body.
+			// Suggestion: this is almost identical to previous example
+			function array_odd(array) {
+				var result = new Array();
+				var n = array.length;
+
+				// For each element in the array
+				for (var i = 0; i < n; ++i) {
+					// If i-esim element is even, add it to the new array, otherwise do nothing
+					if (is_odd(array[i])) {
+						result.push(array[i]);
+					}
+				}
+
+				return result;
+			}
+
+
+
+			// Array map: applies given function to every element of given array, returning them in a new array
+			// You are given the name, argument list and part of the body, and must complete the code.
+			// To understand what this function does, here are some examples in pseudocode:
+			// * array_map([1, 2, 3], successor) -> [1 +1, 2 +1, 3 +1] = [2, 3, 4]
+			// * array_map([1, 2, 3], *2) -> [1 *2, 2 *2, 3 *2] = [2, 4, 6]
+			// * array_map([1, 2, 3], is_even) -> [is_even(1), is_even(2), is_even(3)] = [false, true, false]
+			// NOTE: JavaScript has a native way to do maps, this is for didactic purposes
+			function array_map(array, f) {
+				var result = new Array();
+				var n = array.length;
+
+				// For each element in the original array...
+				for (var i = 0; i < n; ++i) {
+					// First apply the function f on the original value (replace 0 with the proper expression)
+					var new_value = f(array[i]);
+					// Then push the new value in the result vector (edit the following line)
+					result.push(new_value);
+				}
+
+				return result;
+			}
+			console.log("array_map(", numbers, ", successor) = ", array_map(numbers, successor));
+
+
+
+
+			// Doublify: computes double of a number
+			// Takes a number and returns that number times 2.
+			// You are given the function name and argument list, and must write its body. That shoud be simple!
+			function doublify(n) {
+				return 2 * n;
+			}
+			console.log("Double of 5 is " + doublify(5));
+			console.log("Double of 7 is " + doublify(7));
+
+
+
+			// Halve: compute thes half of a number
+			// Takes a number and returns that number divided by 2.
+			// You are given the function name and argument list, and must write its body. That shoud be simple!
+			function halve(n) {
+				return n / 2;
+			}
+			console.log("Half of 9 is " + halve(5));
+			console.log("Half of 16 is " + halve(7));
+
+
+
+			// 2 * x + 1
+			// Write a function which takes a number as argument, multiplies it by 2 and then adds 1.
+			// The name of the function must be "linear1" (without quotes)
+			// Suggestion: instead of defining the function from scratch, you can compose some functions you already have...
+			var linear1 = compose(successor, doublify);
+			// Uncomment the following lines to get an idea and check results
+			console.log("linear1(8) = ", linear1(8));
+			console.log("linear1(9) = ", linear1(9));
+
+
+
+			// (((x + 1) * 2) + 1) / 2
+			// Write a function which takes a number as argument, adds 1, then multiplies by 2,
+			// then adds 1, then divides by 2.
+			// The name of the function must be "linear2" (without quotes)
+			// Suggestion: instead of defining the function from scratch, you can compose some functions you already have...
+			var linear2 = compose(compose(compose(halve, successor), doublify), successor);
+			// Uncomment the following lines to get an idea and check results
+			console.log("linear2(8) = ", linear2(8));
+			console.log("linear2(9) = ", linear2(9));
+
+
+
+			// Last, use some of those functions!
+			// Write a piece of code which:
+			// * starts from the numbers variable defined before
+			// * builds a new array where every element is the result of linear2 applied to corresponding element of numbers
+			// Suggestion: instead of writing the iterations by hand, use array_map (edit the line below)!
+			console.log(array_map(numbers, linear2));
+		</script>
+	</body>
+</html>

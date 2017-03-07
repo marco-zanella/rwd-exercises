@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Introduction | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<header class="container">
+			<div class="jumbotron">
+				<h1>JavaScript exercises</h1>
+				<p>Set of JavaScript optional exercises for students of the Responsive Web Design course.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="https://www.coursera.org/learn/responsive-web-design/discussions/all" role="button">Go to discussion forum</a>
+				</p>
+			</div>
+		</header>
+
+
+		<section class="container">
+			<div class="page-header">
+				<h2>00 - Introduction</h2>
+			</div>
+
+			<p>
+				This is additional, optional material for students of the <a href="https://www.coursera.org/learn/responsive-web-design/" target="_blank">Responsive Web Design</a> course. You are free to use and
+				redistribute files and source code form this material for any use.
+			</p>
+
+			<p>
+				Material is organized as follows:
+				<ul>
+					<li>main folder contains subfolder named as <em>"&lt;number&gt; - &lt;name&gt;"</em>, where <em>number</em>are progressive numbers <em>suggesting</em> the order in which you should approac the exercises, while <em>name</em> is an explicative name of the content</li>
+
+					<li>each subfolder contains at least an <em>index.html</em> file, which explains the subject of the exercise, shows some examples and/or describes what to to in the exercises</li>
+
+					<li>each subfolder may contain "exercise files" named as <em>&lt;number&gt;-&gt;exercise number&gt;_&lt;name&gt;.html</em> (for example: <em>99-58_some-exercise.html</em>), where <em>number</em> is the same number identifying the subfolder, <em>exercise</em> are progressive number identifying exercises within a subfolder and <em>name</em> is mnemonic name for the exercise</li>
+
+					<li>every time an "exercise file" is provided, a proposal of "solution file" is also given, and it is named as the corresponding "exercise file" plus <em>_solution</em> appended to the name (example: <em>99-58_some-exercise_solution.html</em>)</li>
+				</ul>
+				as a rule of thumb, <strong>always open the <em>index.html</em> file first</strong>, as it contains every info you need for a particular set of exercises.
+			</p>
+
+			<p>
+				Exercises are in the form of partially compiled HTML (and JavaScript) files which students can complete. The source code is richly commented in order to give precise instructions about what to do.
+			</p>
+
+			<p>
+				<strong>These exercises are not part  of the course</strong>, hence they are <strong>not required</strong> to complete the course, and are not subjected to the <em>peer review</em> mechanism, they are completely optional. Nevertheless, students are encouraged to discuss about exercises in the <a href="https://www.coursera.org/learn/responsive-web-design/discussions/all" target="_blank">course discussion forum</a>.
+			</p>
+
+
+
+			<h3>What is this?</h3>
+			<p>
+				This file contains a base introduction about JavaScript, explaining some core concepts and introducing some jargon and best practices. You can use this file as a quick reference to JavaScript syntax. Since this is an introductory file, <strong>there are no exercises associated to this unit</strong>.
+			</p>
+
+
+
+			<h3>Comments</h3>
+			<p>
+				First thing you <em>must</em> learn are comments. <strong>Comments are a great way to tell what's going on</strong> and to annotate the code:
+				<pre>
+// This is  comment on one line (inline)
+
+/* This is a comment
+   which may span
+   over multiple lines (multiline) */
+				</pre>
+				Comments are ignored by the JavaScript interpreter. Comments are for <em>programmers</em>, not for computers. As shown in the example, we have two possible syntax for comments, <em>inline</em> and <em>multiline</em>. Which one to use is completely up to you!
+			</p>
+
+
+
+			<h3>Indentation and names</h3>
+			<p>
+				Suppose you know nothing about JavaScript.<br>
+				Now read those two pieces of code, which perform exactly the same task:
+
+				<pre>
+// First code
+aaaa=5;bbBB=8;cRW_=aaaa+aaaa+aaaa+aaaa-((((((bbBB+aaaa-bbBB-aaaa))))));
+
+// Second code
+var x = 5;
+var c = 4 * x;
+				</pre>
+
+				Which one do you like best?
+			</p>
+			<p>
+				Here is another example:
+				<pre>
+// First code
+var a = 5;
+			var b = 10;
+	var c = a + 	b;
+		var d =     c * c;
+
+// Second code
+var a = 5;
+var b = 10;
+var c = a + b;
+var d = c * c;
+				</pre>
+				The <em>take home lesson</em>: <strong>do use meaningful names</strong>, and <strong>try to properly align</strong> (jargon: indent) things.<br>
+				Later we will give the correct names to these concepts. We will talk of "identifiers" rather than "names", and of "blocks" instead of "things".
+				No matter how we will call them, you should apply some common sense when you write your code.
+			</p>
+
+
+
+			<h3>Variables and expressions</h3>
+			<p>
+				Terms like <em>variable</em> and <em>expression</em> recur often in programming. To make the long story short, <strong>a variable is a container</strong> for some data, and <strong>an expression is a calculation</strong>. Suppose you want to implement a web page which acts as a calculator, and you whish to provide a "compute area of a rectangle" feature: you need to know the length of the base and the height, then multiply them:
+				<pre>
+var base_length = 9;
+var height = 48;
+
+var area = base_length * height;
+				</pre>
+				<em>base_height</em>, <em>height</em> and <em>area</em> are <strong>variables</strong>, they are used to store data (numeric data, in this case, but it could be of any type). In the previous code, we have three <em>assignment</em>: some value is <em>assigned</em> to our variables. First two assignments are "easy", as only a constant, numeric value is used. Last line assigns the <em>result of an expression</em> to a variable (in this case the <em>expression</em> is multiplication between numbers, which are contained in the variables).
+			</p>
+
+			<p>
+				The act of "introducing" a variable is calling <strong>declaring a variable</strong>, the act of assigning it its first value is calling <strong>initialization</strong>:
+				<pre>
+var triangle_base;        // This is only declared, it has no value
+var triangle_angle = 45;  // This is declared AND initialized
+side = 18;                // Initialized by NOT declared, see notes
+				</pre>
+				It is possible to assign a value to a variable without declaring it with <strong>var</strong>. In this case, the variable becomes <em>global</em> (a concept not yet defined at this point): <strong>you are suggested to avoid this</strong>, unless you know what you are doing and have a good reason to do so.
+			</p>
+
+
+
+			<h3>Functions</h3>
+			<p>
+				Functions in JavaScript are very similar to mathematical partial functions, and are a core concept in JavaScript. On the practical side, suppose to have a web page to compute a long arithmetic expression:
+<pre>
+...
+var result = (a * x * x * x) + (b * x * x) + (c * x) + d;
+</pre>
+				Now, suppose to do the same, but for different combinations of values of <em>a, b, c, d, x</em>:
+<pre>
+// Bad code!
+...
+var result1 = (10 * 5 * 5 * 5) + (7 * 5 * 5) + (8 * 5) + 4;
+var result2 = (12 * 3 * 3 * 3) + (4 * 3 * 3) + (18 * 3) - 12;
+...
+var resultN = (20 * 2 * 2 * 2) + (2 * 2 * 2) + (57 * 2) + 9;
+</pre>
+				Writing the code as such is long and error-prone: it is possible to <strong>abstract</strong> the computation of the expression in a function:
+				<pre>
+// Better code
+function evaluation_of_expression(a, b, c, d, x) {
+	return (a * x * x * x) + (b * x * x) + (c * x) + d;
+}
+
+var result1 = evaluation_of_expression(10, 7, 8, 4, 5);
+var result2 = evaluation_of_expression(12, 4, 18, -12, 3);
+...
+var resultN = evaluation_of_expression(20, 2, 57, 9, 2);
+				</pre>
+				Functions takes an arbitrary number of <em>arguments</em> (even 0) and may return a result. In given example, function takes four arguments and sums/multiplies them to compute a result. Functions defined in this way have a <em>name</em>, which allows them to be referenced and <em>called</em>. <em>Anonymous functions</em> (i.e. functions without a name) also exist, and we will discuss about them later in the exercises.
+			</p>
+
+			<p>
+				Functions have the purposes of <strong>abstracting a behavior</strong>, for instance the concept of <em>area of a rectangle</em> does not depend on a specific rectangle, it is defined <em>for every rectangle</em> and it is equal to the product between length of its base and its height:
+				<pre>
+function rectangle_area(base_length, height) {
+	var area = base_length * height;
+
+	return area;
+}
+				</pre>
+				The piece of code inside a function, which is called <strong>body of the function</strong> can contain arbitrary code, it is not limited in term of length or complexity.
+			</p>
+
+			<p>
+				JavaScript is (also) a <strnog>functional programming languages</strnog>, which means <strong>functions are also values</strong>, hence they can be assigned to variables in the usual way:
+				<pre>
+var area_function = rectangle_area;
+
+// This is an anonymous function:
+var my_function = function triangle_area(base, height) {
+	return base * height / 2;
+}
+				</pre>
+				as a corollary, functions can be passed (and returned) to other functions. This concept is called <strong>functional</strong> in mathematics and <strong>higher order function</strong> in computer science, and has a number of teoretical and practical consequences.
+			</p>
+
+
+
+			<h3>Iterations</h3>
+			<p>
+				A concept you can easily think of is <em>"do this thing 10 times, then do something else"</em>, which is often modeled as a <em>for loop</em>:
+				<pre>
+for (var i = 0; i < 10; ++i) {
+	do_this_thing();
+}
+do_something_else();
+				</pre>
+				Reading this code is straightfoward. Let's have an index variable <em>i</em>, for <em>i</em> ranging from 0 (included) to 10 (excluded, hence 9), do something (in the example: call the <em>do_something</em> function), incrementing <em>i</em> by <em>1</em> each time. Observe that <em>++i</em> is an alternative way to write <em>i = i + 1</em>
+			</p>
+
+			<p>
+				Another similar concept is: <em>"As long as this condition is true, do this thing"</em>:
+				<pre>
+while (is_some_condition_true()) {
+	do_this_thing();
+}
+				</pre>
+				In this example, <em>is_this_condition_true</em> is a function which returns either <em>true</em> or <em>false</em>.
+			</p>
+
+			<p>
+				These concepts are called <strong>iterations</strong>.
+			</p>
+
+
+
+			<h3>Arrays and objects</h3>
+			<p>
+				So far we so only simple, numeric variables. JavaScript variables can hold different types of values, for instance <strong>strings</strong> (informally: <em>text</em>) or <strong>boolean values</strong> (<em>true or false</em>):
+				<pre>
+var my_string = "This is a string!";
+var my_bool1 = true;
+var my_bool2 = false;
+var my_bool3 = 3 < x;  // This one will be true is 3 < x, false otherwise
+				</pre>
+				All of these are <em>scalar</em> type. You can read this informally as "simple" types, or "not-composed" type. We also saw that functions can be assigned to variables, that is a <em>function</em> type.
+			</p>
+
+			<p>
+				There are other two common types, which are <strong>arrays</strong> and <strong>objects</strong>. The former are an ordered collection of values (of any type), for instance a list:
+				<pre>
+var my_array = new Array(5, 6, 1, "some string", new Array(), 3);
+var second_element = my_array[1];
+				</pre>
+				As shown in the example, an array can contain literally everything: numbers, strings, other arrays, functions, objects and so on. To access an element in an array we use its position between square brackets, or <em>index</em>. Array indexes start as 0, so first element is indexed as 0, second as 1 and so on.
+			</p>
+
+			<p>
+				Objects, instead, are records with labelled fields:
+				<pre>
+var my_object = {
+	name: "Guy",
+	age: 28,
+	friends: new Array("Mark", "Cindy")
+};
+
+var name = my_object.name;
+				</pre>
+				formally, these are <em>conjuctive data structures</em>. As with arrays, objects can contains everything, including arrays and other objects.
+			</p>
+
+			<div class="alert alert-warning">
+				<strong>Note</strong> for those who have experience with other object oriented programming languages: JavaScript objects of this type have almost nothing to do with objects and classes in object oriented programming. JavaScript can still be considered an object oriented language, but it uses different mechanisms to implement objects, inheritance and subtyping (namely: <em>functions</em> and <em>prototypes</em>).
+			</div>
+		</section>
+
+
+		<!-- jQuery and Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>

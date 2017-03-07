@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>JSON | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+
+	<body>
+		<div class="container">
+			<div class="alert alert-info">
+				Remember to keep you console open in order to see any JavaScript error!
+			</div>
+
+			<h2>Events by <span id="sponsor"></span></h2>
+			<p>
+				Currently, there are <span id="number_of_events"></span> events planned:
+			</p>
+
+			<div class="row" id="event_list">
+			</div>
+		</div>
+
+		<!-- JavaScript code -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script>
+			// This is where you can put your JavaScript code.
+
+			// Some functions are provided to you.
+			// They will take a JSON object and will take care of displaying it.
+			// You are not asked to read and understand these functions, they are
+			// given as a black box tool. Neverheless, feel free to study them if you like.
+			function event_to_html(event) {
+				var container = $('<div></div>').addClass('col-md-6');
+
+				var panel = $('<article></article>').addClass('panel').addClass('panel-default');
+
+				var panel_head = $('<div></div>').addClass('panel-heading').text(event.name);
+				var panel_body = $('<div></div>').addClass('panel-body');
+
+				var details = $('<ul></ul>');
+				var place = $('<li></li>').text('place: ' + event.place);
+				var date = $('<li></li>').text('date: ' + event.date);
+
+				var description = $('<p></p>').text(event.description);
+
+				var panel_footer = $('<div></div>').addClass('panel-footer').addClass('text-right');
+				var link = $('<a></a>').addClass('btn').addClass('btn-primary').text('Read more...').attr('href', '?id=' + event.id);
+
+				panel.append(panel_head);
+
+				details.append(place);
+				details.append(date);
+				panel_body.append(details);
+				panel_body.append(description);
+				panel.append(panel_body);
+
+				panel_footer.append(link);
+				panel.append(panel_footer);
+
+				container.append(panel);
+
+				return container;
+			}
+
+			function event_list_to_html(events) {
+				return events.map(event_to_html);
+				return "<div>bbb</div>";
+			}
+
+			function show_event_data(data) {
+				$('#sponsor').html(data.sponsor);
+				$('#number_of_events').html(data.length);
+				$('#event_list').append(event_list_to_html(data.eventList));
+			}
+
+
+
+			// Now, write your data!
+			// You are asked to write a JSON containing data about a list of events.
+			// Your object will contain the following fields:
+			// * length: a number telling how many events you have
+			// * sponsor: a string, the name of the person (or company) who support the event
+			// * eventList: an array of events
+			// Each entry in the eventList is an object which must have at least the following fields:
+			// * id: a string with an ID (you can invent a random string)
+			// * name: name of the event (string)
+			// * description: a brief textual description of the event (string)
+			// * place: where event will take place (string)
+			// * date: date of the event (string). Feel free to use any date format you like,
+			//         suggested one is "YYYY-MM-DD, hh:mm:ss", for instance "2017-03-06, 15:30:00"
+			// An event is given to you as example.
+			// Feel free to add as many events as you like, and remember to update the value of "length" field!
+			var event_data = {
+				length: 1,
+				sponsor: "Fake Sponsor",
+				eventList: [
+					{
+						id: "au5nlf0",
+						name: "Sample Event",
+						description: "Brief description for Sample Event",
+						place: "Center of the Earth",
+						date: "2017-03-06, 15:30:00"
+					},
+				]
+			};
+
+
+			// This jQuery part is done for you
+			// The following, miysterious line means "do this code when document is ready"
+			$(function() {
+				// This function call will "inject" the events in the HTML page
+				show_event_data(event_data);
+			});
+		</script>
+	</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<title>Your first program | JavaScript Exercises</title>
+
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	</head>
+
+	<body>
+		<header class="container">
+			<div class="jumbotron">
+				<h1>JavaScript exercises</h1>
+				<p>Set of JavaScript optional exercises for students of the Responsive Web Design course.</p>
+				<p>
+					<a class="btn btn-primary btn-lg" href="https://www.coursera.org/learn/responsive-web-design/discussions/all" role="button">Go to discussion forum</a>
+				</p>
+			</div>
+		</header>
+
+
+		<section class="container">
+			<div class="page-header">
+				<h2>01 - Your first program</h2>
+			</div>
+
+			<p>
+				Time to get your feet wet with some actual programming! Although JavaScript is a general purpose programming languages and can be used in diffirent environments (inside or outside the web browser), we will focus on the web browser. We will introduce the <em>developer console</em>, which is going to be your best ally out there.
+			</p>
+
+
+
+			<h3>The developer console</h3>
+			<p>
+				Most major desktop browser integrates a tool called <em>developer console</em>, which allows to interact with a web page in different way, and even to type and execute JavaScript code. Different browsers have different key-shortcuts to access this tool (and some even call it with different names), so you should ask your search engine of choice how to access it on your browser. For example, Google Chrome users on GNU/Linux and Windows will find an <em>Inspect</em> command when right-clicking on a page, or can use the sortcut <kbd><kbd>ctrl</kbd> + <kbd>shift</kbd> + <kbd>j</kbd></kbd> to direct access the tool.
+			</p>
+
+			<p>
+				The console allow you to type and execute JavaScript code: try to access the console and ask it to oo some very easy calculations (output is reported for sake of examples):
+				<pre>
+> 5
+<- 5
+
+> 5 + 9
+<- 14
+
+> 5 + &amp;
+x Uncaught SyntaxError: Unexpected token &amp;
+				</pre>
+				You will see a line like the last one (too) often: it means there is a syntax error in the code. In words, you wrote an invalid piece of JavaScript which broke the program, and the console is reporting this to you. The console also tries to inform you about file, line and nature of the error, although identifying an error is not as easy at it may seem.
+			</p>
+
+
+
+			<h3>Hello, World!</h3>
+			<p>
+				Examples so far were about <em>computing</em> some result, but we may also want to <em>display</em>. Usually, when you are using JavaScript in a web site, your result will be displayed inside the HTML entities, hence you will have to access them, compute what you need to compute, format in in HTML, append it to the document and so on. This is a reasonable procedure, but it depends strictly on the nature of the computation you are performing and on what you need to accomplish.
+			</p>
+
+			<p>
+				The developer console provides a general way to output information to deverlopers, which is the <strong>console.log</strong> function (technically speaking, <em>console</em> is an object and <em>log</em> is one field of its which is of type <em>function</em>). This allows to display on the console and inspect various data:
+				<pre>
+console.log("Hello, World!");
+				</pre>
+				Will print the string <em>Hello, World!</em> on the console. But it is more magican than that! It will use a different "layout" depending on the type of the object it is printing. For instance, an array containing two numbers, a string and a function will be rendered as:
+				<pre>
+[1, 2, "my string", function]
+				</pre>
+			</p>
+
+
+
+			<h3>Exercise: print "Hello, World!"</h3>
+			<p>
+				For your first exercise, you are asked to edit file <em>01-01_hello.html</em> in order to make it print the string "Hello, World!" on the console. Follows the comment in the file (starting at line 23) for further instructions, and remember you are also given the solution file <em>01-01_hello_solution.html</em>
+			</p>
+
+
+
+			<h3>Exercise: basic arithmetic</h3>
+			<p>
+				For this exercise, edit the file <em>01-02_arithmetic.html</em> and follows directives from line 23. Don't forget you are given the solution file <em>01-02_arithmetic_solution.html</em>.
+			</p>
+		</section>
+
+
+		<!-- jQuery and Bootstrap JS -->
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	</body>
+</html>
